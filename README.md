@@ -2,7 +2,7 @@
 
 Listformat is a plugin system for list rendering, based on:
 - The [UniPlugin](https://github.com/donquixote/drupal-uniplugin) API.
-- The [ListFormatInterface](https://github.com/donquixote/drupal-renderkit/src/ListFormat/ListFormatInterface.php) in [Renderkit](https://github.com/donquixote/drupal-renderkit).
+- The [ListFormatInterface](https://github.com/donquixote/drupal-renderkit/blob/7.x-1.x/src/ListFormat/ListFormatInterface.php) in [Renderkit](https://github.com/donquixote/drupal-renderkit).
 
 Existing plugins (so far, all defined in Renderkit):
 - Separator: Specify a separator, e.g. ", " or "\<hr/>".
