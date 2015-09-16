@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * Implements hook_menu()
+ */
+function listformat_example_menu() {
+  return array(
+    'listformat-example-form' => array(
+      'page callback' => 'drupal_get_form',
+      /* @see listformat_example_form() */
+      'page arguments' => array('listformat_example_form'),
+      'access arguments' => array('administer site configuration'),
+      'type' => MENU_CALLBACK,
+    ),
+  );
+}
+
+/**
+ * @param array $form
+ * @param array $form_state
+ *
+ * @return array
+ */
+function listformat_example_form(array $form, array $form_state) {
+  $form['plugin'] = array(
+    '#type' => UIKIT_ELEMENT_TYPE,
+    '#uikit_element_object' => listformat()->getUikitElementType(),
+    '#default_value' => array(),
+  );
+
+  return $form;
+}
+

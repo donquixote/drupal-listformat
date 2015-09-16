@@ -1,0 +1,6 @@
+name = List format
+core = 7.x
+
+dependencies[] = xautoload
+dependencies[] = renderkit
+dependencies[] = uniplugin

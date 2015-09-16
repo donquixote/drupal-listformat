@@ -1,0 +1,5 @@
+name = Listformat example
+description = Example module for listformat plugins
+core = 7.x
+
+dependencies[] = listformat

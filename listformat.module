@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\listformat\Manager\LfPluginManager;
+use Drupal\uniplugin\PluginTypeDIC\DefaultPluginTypeServiceContainer;
+
+/**
+ * Implements hook_views_api().
+ *
+ * @see listformat_views_plugins()
+ */
+function listformat_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+/**
+ * @return LfPluginManager
+ */
+function listformat() {
+  static $manager;
+  return isset($manager)
+    ? $manager
+    : $manager = _listformat_create_manager();
+}
+
+/**
+ * @return LfPluginManager
+ */
+function _listformat_create_manager() {
+  /* @see hook_listformat_info() */
+  $lfPluginTypeDIC = new DefaultPluginTypeServiceContainer('listformat_info');
+  return new LfPluginManager($lfPluginTypeDIC->manager);
+}
