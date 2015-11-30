@@ -24,18 +24,14 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
-    $form['listformat'] = array(
-      '#type' => UIKIT_ELEMENT_TYPE,
-      '#uikit_element_object' => listformat()->getUikitElementType(),
-      '#default_value' => $this->options['listformat'],
-    );
+    $form['listformat'] = listformat()->confGetForm($this->options['listformat']);
   }
 
   /**
    * Returns the summary of the settings in the display.
    */
   function summary_title() {
-    return listformat()->settingsGetSummary($this->options['listformat']);
+    return listformat()->confGetSummary($this->options['listformat']);
   }
 
   /**
@@ -50,7 +46,7 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
     foreach ($rows as $delta => $row_html) {
       $builds[$delta]['#markup'] = $row_html;
     }
-    $listformat = listformat()->settingsGetListFormat($this->options['listformat']);
+    $listformat = listformat()->confGetListFormat($this->options['listformat']);
     $build = $listformat->buildList($builds);
     return drupal_render($build);
   }
