@@ -23,7 +23,9 @@ function listformat_example_menu() {
  */
 function listformat_example_form(array $form, array $form_state) {
 
-  $form['plugin'] = listformat()->confGetForm(array());
+  if (FALSE) unset($form_state);
+
+  $form['plugin'] = listformat()->confGetForm(array(), t('List format'));
 
   return $form;
 }

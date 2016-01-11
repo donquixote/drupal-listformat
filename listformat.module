@@ -1,7 +1,6 @@
 <?php
 
-use Drupal\listformat\Manager\LfManager;
-use Drupal\renderkit\ListFormat\ListFormatInterface;
+use Drupal\listformat\LfConfigurator\LfConfigurator;
 
 /**
  * Implements hook_views_api().
@@ -15,19 +14,11 @@ function listformat_views_api() {
 }
 
 /**
- * @return \Drupal\listformat\Manager\LfManager
+ * @return \Drupal\listformat\LfConfigurator\LfConfiguratorInterface
  */
 function listformat() {
   static $manager;
   return isset($manager)
     ? $manager
-    : $manager = _listformat_create_manager();
-}
-
-/**
- * @return \Drupal\listformat\Manager\LfManager
- */
-function _listformat_create_manager() {
-  $lfHandlerMap = uniplugin()->interfaceGetHandlerMap(ListFormatInterface::class);
-  return new LfManager($lfHandlerMap);
+    : $manager = LfConfigurator::create();
 }

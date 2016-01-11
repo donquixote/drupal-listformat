@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\listformat\Plugin\views\style;
+namespace Drupal\listformat\CtoolsPlugin\views\style;
 
 abstract class ViewsStylePluginBase extends \views_plugin_style {
 

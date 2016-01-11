@@ -1,6 +1,8 @@
 <?php
 
-namespace Drupal\listformat\Plugin\views\style;
+namespace Drupal\listformat\CtoolsPlugin\views\style;
+
+use Drupal\cfrapi\SummaryBuilder\SummaryBuilder_Static;
 
 class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
 
@@ -24,14 +26,14 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
-    $form['listformat'] = listformat()->confGetForm($this->options['listformat']);
+    $form['listformat'] = listformat()->confGetForm($this->options['listformat'], t('List format'));
   }
 
   /**
    * Returns the summary of the settings in the display.
    */
   function summary_title() {
-    return listformat()->confGetSummary($this->options['listformat']);
+    return listformat()->confGetSummary($this->options['listformat'], new SummaryBuilder_Static());
   }
 
   /**
