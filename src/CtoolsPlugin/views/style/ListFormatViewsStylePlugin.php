@@ -26,7 +26,17 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
-    $form['listformat'] = listformat()->confGetForm($this->options['listformat'], t('List format'));
+    if (isset($form_state['values']['style_options']['listformat'])) {
+      $conf = $form_state['values']['style_options']['listformat'];
+    }
+    elseif (isset($form_state['input']['style_options']['listformat'])) {
+      $conf = $form_state['input']['style_options']['listformat'];
+    }
+    else {
+      $conf = $this->options['listformat'];
+    }
+
+    $form['listformat'] = listformat()->confGetForm($conf, t('List format'));
   }
 
   /**
