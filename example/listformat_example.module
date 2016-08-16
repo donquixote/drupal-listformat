@@ -21,10 +21,10 @@ function listformat_example_menu() {
  *
  * @return array
  */
-function listformat_example_form(array $form, array $form_state) {
-
-  if (FALSE) unset($form_state);
-
+function listformat_example_form(
+  array $form,
+  /** @noinspection PhpUnusedParameterInspection */ array $form_state
+) {
   $form['plugin'] = listformat()->confGetForm(array(), t('List format'));
 
   return $form;
