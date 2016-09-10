@@ -13,7 +13,7 @@ class LfConfigurator implements LfConfiguratorInterface {
   /**
    * @return \Drupal\listformat\LfConfigurator\LfConfiguratorInterface
    */
-  static function create() {
+  public static function create() {
     $lfHandlerMap = cfrplugin()->interfaceGetConfigurator(ListFormatInterface::class);
     return new LfConfigurator($lfHandlerMap);
   }
@@ -23,7 +23,7 @@ class LfConfigurator implements LfConfiguratorInterface {
    *
    * @return \Drupal\renderkit\ListFormat\ListFormatInterface
    */
-  function confGetListFormat(array $conf) {
+  public function confGetListFormat(array $conf) {
     $handlerCandidate = $this->decorated->confGetValue($conf);
     if ($handlerCandidate instanceof ListFormatInterface) {
       return $handlerCandidate;

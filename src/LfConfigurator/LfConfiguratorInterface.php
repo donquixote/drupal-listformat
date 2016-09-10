@@ -11,6 +11,6 @@ interface LfConfiguratorInterface extends RawConfiguratorInterface {
    *
    * @return \Drupal\renderkit\ListFormat\ListFormatInterface
    */
-  function confGetListFormat(array $conf);
+  public function confGetListFormat(array $conf);
 
 }

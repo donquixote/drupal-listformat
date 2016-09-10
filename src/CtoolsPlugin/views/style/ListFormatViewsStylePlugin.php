@@ -9,7 +9,7 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
   /**
    * Set default options
    */
-  function option_definition() {
+  public function option_definition() {
     $options = parent::option_definition();
 
     $options['listformat'] = array('default' => array());
@@ -23,7 +23,7 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
    * @param array $form
    * @param array $form_state
    */
-  function options_form(&$form, &$form_state) {
+  public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
     if (isset($form_state['values']['style_options']['listformat'])) {
@@ -42,7 +42,7 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
   /**
    * Returns the summary of the settings in the display.
    */
-  function summary_title() {
+  public function summary_title() {
     return listformat()->confGetSummary($this->options['listformat'], new SummaryBuilder_Static());
   }
 

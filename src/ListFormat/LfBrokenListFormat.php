@@ -14,7 +14,7 @@ class LfBrokenListFormat implements ListFormatInterface {
   /**
    * @return static
    */
-  static function create() {
+  public static function create() {
     return new static();
   }
 
@@ -43,7 +43,7 @@ class LfBrokenListFormat implements ListFormatInterface {
    * @return array
    *   Render array for the list.
    */
-  function buildList(array $builds) {
+  public function buildList(array $builds) {
     return array();
   }
 

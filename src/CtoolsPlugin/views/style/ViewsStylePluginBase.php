@@ -18,7 +18,7 @@ abstract class ViewsStylePluginBase extends \views_plugin_style {
    * @return string
    *   Rendered output of given grouping sets.
    */
-  function render_grouping_sets($sets, $level = 0) {
+  public function render_grouping_sets($sets, $level = 0) {
     $output = '';
     foreach ($sets as $set) {
       $row = reset($set['rows']);
