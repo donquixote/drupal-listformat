@@ -4,15 +4,15 @@
  * Implements hook_menu()
  */
 function listformat_example_menu() {
-  return array(
-    'listformat-example-form' => array(
+  return [
+    'listformat-example-form' => [
       'page callback' => 'drupal_get_form',
       /* @see listformat_example_form() */
-      'page arguments' => array('listformat_example_form'),
-      'access arguments' => array('administer site configuration'),
+      'page arguments' => ['listformat_example_form'],
+      'access arguments' => ['administer site configuration'],
       'type' => MENU_CALLBACK,
-    ),
-  );
+    ],
+  ];
 }
 
 /**
@@ -25,7 +25,7 @@ function listformat_example_form(
   array $form,
   /** @noinspection PhpUnusedParameterInspection */ array $form_state
 ) {
-  $form['plugin'] = listformat()->confGetForm(array(), t('List format'));
+  $form['plugin'] = listformat()->confGetForm([], t('List format'));
 
   return $form;
 }

@@ -12,7 +12,7 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
   public function option_definition() {
     $options = parent::option_definition();
 
-    $options['listformat'] = array('default' => array());
+    $options['listformat'] = ['default' => []];
 
     return $options;
   }
@@ -54,7 +54,7 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
    * @return string
    */
   protected function renderRows(array $rows, $title, $grouping_level) {
-    $builds = array();
+    $builds = [];
     foreach ($rows as $delta => $row_html) {
       $builds[$delta]['#markup'] = $row_html;
     }

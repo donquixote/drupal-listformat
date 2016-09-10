@@ -8,9 +8,9 @@ use Drupal\listformat\LfConfigurator\LfConfigurator;
  * @see listformat_views_plugins()
  */
 function listformat_views_api() {
-  return array(
+  return [
     'api' => 3,
-  );
+  ];
 }
 
 /**

@@ -44,7 +44,7 @@ class LfBrokenListFormat implements ListFormatInterface {
    *   Render array for the list.
    */
   public function buildList(array $builds) {
-    return array();
+    return [];
   }
 
 }

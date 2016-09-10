@@ -4,9 +4,9 @@
  * Implements hook_views_plugins().
  */
 function listformat_views_plugins() {
-  return array(
-    'style' => array(
-      'listformat' => array(
+  return [
+    'style' => [
+      'listformat' => [
         'title' => t('Listformat'),
         'help' => t('Displays rows using a listformat plugin.'),
         'handler' => \Drupal\listformat\CtoolsPlugin\views\style\ListFormatViewsStylePlugin::class,
@@ -16,7 +16,7 @@ function listformat_views_plugins() {
         'uses options' => TRUE,
         'type' => 'normal',
         'help topic' => 'style-list',
-      ),
-    ),
-  );
+      ],
+    ],
+  ];
 }

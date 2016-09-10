@@ -25,12 +25,13 @@ abstract class ViewsStylePluginBase extends \views_plugin_style {
       // Render as a grouping set.
       if (is_array($row) && isset($row['group'])) {
         $output .= theme(views_theme_functions('views_view_grouping', $this->view, $this->display),
-          array(
+          [
             'view' => $this->view,
             'grouping' => $this->options['grouping'][$level],
             'grouping_level' => $level,
             'rows' => $set['rows'],
-            'title' => $set['group'])
+            'title' => $set['group']
+          ]
         );
       }
       // Render as a record set.
