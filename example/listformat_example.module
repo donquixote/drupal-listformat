@@ -1,4 +1,5 @@
 <?php
+use Drupal\renderkit\ListFormat\ListFormatInterface;
 
 /**
  * Implements hook_menu()
@@ -25,7 +26,12 @@ function listformat_example_form(
   array $form,
   /** @noinspection PhpUnusedParameterInspection */ array $form_state
 ) {
-  $form['plugin'] = listformat()->confGetForm([], t('List format'));
+  $form['plugin'] = [
+    '#type' => 'cfrplugin',
+    '#cfrplugin_interface' => ListFormatInterface::class,
+    '#title' => t('List format'),
+    '#default_value' => [],
+  ];
 
   return $form;
 }

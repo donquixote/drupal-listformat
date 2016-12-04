@@ -3,6 +3,7 @@
 namespace Drupal\listformat\CtoolsPlugin\views\style;
 
 use Drupal\cfrapi\SummaryBuilder\SummaryBuilder_Static;
+use Drupal\renderkit\ListFormat\ListFormatInterface;
 
 class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
 
@@ -26,17 +27,12 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
   public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
-    if (isset($form_state['values']['style_options']['listformat'])) {
-      $conf = $form_state['values']['style_options']['listformat'];
-    }
-    elseif (isset($form_state['input']['style_options']['listformat'])) {
-      $conf = $form_state['input']['style_options']['listformat'];
-    }
-    else {
-      $conf = $this->options['listformat'];
-    }
-
-    $form['listformat'] = listformat()->confGetForm($conf, t('List format'));
+    $form['listformat'] = [
+      '#type' => 'cfrplugin',
+      '#cfrplugin_interface' => ListFormatInterface::class,
+      '#title' => t('List format'),
+      '#default_value' => $this->options['listformat'],
+    ];
   }
 
   /**
