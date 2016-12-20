@@ -4,3 +4,5 @@ core = 7.x
 dependencies[] = xautoload
 dependencies[] = renderkit
 dependencies[] = cfr:cfrplugin
+; This is required for all list formats to be discovered in renderkit.
+dependencies[] = cfr:cfrplugindiscovery
