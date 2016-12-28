@@ -50,13 +50,30 @@ class ListFormatViewsStylePlugin extends ViewsStylePluginBase {
    * @return string
    */
   protected function renderRows(array $rows, $title, $grouping_level) {
+
     $builds = [];
     foreach ($rows as $delta => $row_html) {
       $builds[$delta]['#markup'] = $row_html;
     }
-    $listformat = listformat()->confGetListFormat($this->options['listformat']);
-    $build = $listformat->buildList($builds);
-    return drupal_render($build);
+
+    try {
+      $build = listformat()
+        ->confGetListFormat($this->options['listformat'])
+        ->buildList($builds);
+
+      return drupal_render($build);
+    }
+    catch (\Exception $e) {
+      watchdog('cfrplugin',
+        'Broken listformat plugin in Views style plugin for @view_name/@display_id.',
+        [
+          '@view_name' => $this->view->name,
+          '@display_id' => $this->view->current_display,
+        ],
+        WATCHDOG_WARNING);
+
+      return '';
+    }
   }
 
 }
